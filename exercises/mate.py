@@ -9,7 +9,8 @@ class Mate:
         self.value = value
 
     def __repr__(self):
-        pass
+        return "({}, {})".format(self.name, self.value)
 
     def __lt__(self, other):
-        pass
+        return self.value < other.value
+
