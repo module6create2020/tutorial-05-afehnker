@@ -47,26 +47,23 @@ class TestExercise2_3_2_3:
         carol = Mate("Carol", 13)
         dave = Mate("Dave", 14)
         eve = Mate("Eve", 15)
-        list = []
-        update_element(list,alice)
-        update_element(list,bob)
-        update_element(list,carol)
-        update_element(list,dave)
-        update_element(list,eve)
-        assert list == [carol, alice, bob, dave, eve], \
-            "The list should be [(Carol, 13), (Alice, 14), (Bob, 14), (Dave, 14), (Eve, 15)] "
+        a_list = [alice, bob, carol, dave, eve]
+        a_list.sort()
         bob.value=15
-        update_element(list,bob)
-        assert list == [carol, alice, dave, eve, bob], \
+        update_element(a_list, bob)
+        assert a_list == [carol, alice, dave, eve, bob], \
             "The list should be [(Carol, 13), (Alice, 14), (Dave, 14), (Eve, 15), (Bob, 15)] "
         bob.value = 14
-        update_element(list, bob)
-        assert list == [carol, alice, dave, bob, eve], \
+        update_element(a_list, bob)
+        assert a_list == [carol, alice, dave, bob, eve], \
             "The list should be [(Carol, 13), (Alice, 14), (Dave, 14), (Bob, 14), (Eve, 15)] "
         bob.value = 13
-        list.append(bob)
-        update_element(list, bob)
-        assert list == [carol, bob, alice, dave, eve], \
+        update_element(a_list, bob)
+        assert a_list == [carol, bob, alice, dave, eve], \
+            "The list should be [(Carol, 13), (Bob, 13), (Alice, 14), (Dave, 14), (Eve, 15)] "
+        frank=Mate("Frank","35")
+        update_element(a_list, frank)
+        assert a_list == [carol, bob, alice, dave, eve], \
             "The list should be [(Carol, 13), (Bob, 13), (Alice, 14), (Dave, 14), (Eve, 15)] "
 
 
@@ -77,26 +74,22 @@ class TestExercise2_3_2_3:
         carol = Mate("Carol", 13)
         dave = Mate("Dave", 14)
         eve = Mate("Eve", 15)
-        list = []
-        update_element_left(list,alice)
-        update_element_left(list,bob)
-        update_element_left(list,carol)
-        update_element_left(list,dave)
-        update_element_left(list,eve)
-        assert list == [carol, dave, bob, alice, eve], \
-            "The list should be [(Carol, 13), (Dave, 14), (Bob, 14), (Alice, 14), (Eve, 15)] "
+        a_list = [alice, bob, carol, dave, eve]
+        a_list.sort()
         bob.value=15
-        update_element_left(list,bob)
-        assert list == [carol, dave, alice, bob, eve], \
-            "The list should be  [(Carol, 13), (Dave, 14), (Alice, 14), (Bob, 15), (Eve, 15)] "
+        update_element_left(a_list,bob)
+        assert a_list == [carol, alice, dave, bob, eve], \
+            "The list should be  [(Carol, 13), (Alice, 14), (Dave, 14), (Bob, 15), (Eve, 15)] "
         bob.value = 14
-        update_element_left(list, bob)
-        assert list == [carol, bob, dave, alice, eve], \
-            "The list should be  [(Carol, 13), (Bob, 14), (Dave, 14), (Alice, 14), (Eve, 15)] "
+        update_element_left(a_list, bob)
+        assert a_list == [carol, bob, alice, dave, eve], \
+            "The list should be  [(Carol, 13), (Bob, 14), (Alice, 14), (Dave, 14), (Eve, 15)] "
         bob.value = 13
-        list.append(bob)
-        update_element_left(list, bob)
-        assert list == [bob, carol, dave, alice, eve], \
-            "The list should be  [(Bob, 13), (Carol, 13), (Dave, 14), (Alice, 14), (Eve, 15)] "
-
+        update_element_left(a_list, bob)
+        assert a_list == [bob, carol, alice, dave,  eve], \
+            "The list should be  [(Bob, 13), (Carol, 13), (Alice, 14), (Dave, 14), (Eve, 15)] "
+        frank = Mate("Frank", "35")
+        update_element_left(a_list, frank)
+        assert a_list == [bob, carol, alice, dave, eve], \
+            "The list should be  [(Bob, 13), (Carol, 13), (Alice, 14), (Dave, 14), (Eve, 15)] "
 
