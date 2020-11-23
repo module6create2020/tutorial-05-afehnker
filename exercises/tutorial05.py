@@ -72,6 +72,18 @@ def explore_update_value():
         print(a)
 
 
+def update_element(a_list, an_element):
+    while an_element in a_list:
+        a_list.remove(an_element)
+    bisect.insort(a_list, an_element)
+
+
+def update_element_left(a_list, an_element):
+    while an_element in a_list:
+        a_list.remove(an_element)
+    bisect.insort_left(a_list, an_element)
+
+
 if __name__ == "__main__":
     print("\nExplore Stack")
     explore_stack()
